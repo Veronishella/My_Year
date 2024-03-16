@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;800&display=swap');
+
+// *************** RESET *********************
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+// *************** COLORS *********************
+
+$primary-color: #0a1f2cc9;
+$secondary-color: #e9e9e9;
+$background-color: #f2f2f2;
+$text-color: #333;
+
+
+
+// *************** FONTS *********************
+
+$font-family: "Sacramento";
+$font-family2: "Poppins";
+$base-font-size: 16px;
+$heading-font-size: 24px;

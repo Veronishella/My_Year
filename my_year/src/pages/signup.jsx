@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react'
-import { supabase } from '../client'
+import  supabase  from '../client'
 import { AuthApiError } from '@supabase/supabase-js'
 import { Link } from 'react-router-dom'
 

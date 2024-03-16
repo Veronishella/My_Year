@@ -1,8 +1,9 @@
 
 import React, { useState } from 'react'
-import { supabase } from '../client'
+import  supabase  from '../client'
 import { AuthApiError } from '@supabase/supabase-js'
 import { Link, useNavigate } from 'react-router-dom'
+import "./login.scss"
 
 
 const Login = ({setToken}) => {
@@ -50,17 +51,19 @@ const Login = ({setToken}) => {
     }
 
     return (
-        <div>
+        <div className='section login-box'>
+           
             <form onSubmit={handleSubmit}>
 
-
-                <input
+                <h1>Happy Days</h1> 
+                <hr />
+                <input className='input-box'
                     placeholder="Email"
                     name="email"
                     onChange={handleChange}
                 />
 
-                <input
+                <input className='input-box'
                     placeholder="Password"
                     name="password"
                     type="password"
@@ -69,10 +72,10 @@ const Login = ({setToken}) => {
 
                 <button type="submit">Submit
                 </button>
-
+                Don´t have an account? <Link to="/signup">Sign Up</Link>
             </form>
 
-            Don´t have an account? <Link to="/signup">Sign Up</Link>
+          
         </div>
     )
 }
