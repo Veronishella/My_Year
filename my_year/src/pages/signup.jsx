@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import  supabase  from '../client'
 import { AuthApiError } from '@supabase/supabase-js'
 import { Link } from 'react-router-dom'
+import "./login.scss"
 
 
 const SignUp = () => {
@@ -56,21 +57,25 @@ const SignUp = () => {
     }
 
   return (
-    <div>
+    <div className="section login-box">
       <form onSubmit={handleSubmit}>
-        <input 
+
+     <h1>Happy Days</h1> 
+        <hr />
+        <h2>Sign Up</h2>
+        <input className="input-box"
           placeholder="Fullname"
           name="fullName"
           onChange={handleChange}
           />
 
-        <input 
+        <input className="input-box"
           placeholder="Email"
           name="email"
           onChange={handleChange}
           />
 
-        <input 
+        <input className="input-box"
           placeholder="Password"
           name="password"
           type="password"
@@ -79,10 +84,10 @@ const SignUp = () => {
 
         <button type="submit">Submit
         </button>
-
+        Already have an account? <Link to="/">Login</Link>
       </form>
 
-      Already have an account? <Link to="/">Login</Link>
+      
     </div>
   )
 }

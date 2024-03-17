@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import CreateForm from "./createForm"
 import supabase from '../client.js'
 import ReadData from "./read"
+import "./homepage.scss"
 
 
 
@@ -49,16 +50,21 @@ const Homepages = ({ token }) => {
 
 
   return (
-    <>
+    <div className="section-hs-body">
       <h1>Welcome back, {token.user.user_metadata.full_Name}</h1>
-      <button onClick={handleLogout}>Logout</button>
+      
 
       <button onClick={() => setIsFormVisible(true)}>New</button>
       {isFormVisible && <CreateForm onSave={handleSave} />}
 
       <button onClick={handleFetchData}>Read my task</button>
       {isDataVisible && <ReadData />}
-    </>
+
+      <button>♥</button>
+
+      <button onClick={handleLogout}>Logout</button>
+
+    </div>
   )
 }
 
