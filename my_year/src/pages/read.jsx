@@ -2,28 +2,13 @@
 import supabase from "../client";
 import React, { useEffect } from 'react';
 
-const ReadData = () => {
+const ReadData = ({ tasks }) => {
   useEffect(() => {
-    printData();
-  }, []);
+    console.log("Tasks from database:", tasks)
+  }, [ tasks ]);
 
-  // Kód na výpis manuálneho záznamu do konzoly
-  async function printData() {
-    try {
-      // Načítanie záznamu z databázy
-      const { data, error } = await supabase
-        .from('task')
-        .select('*')
-        
+  return null;
 
-      // Vypíš údaje záznamu do konzoly
-      console.log('Manually inserted row:', data);
-    } catch (error) {
-      console.error('Error fetching manually inserted row:', error.message);
-    }
-  }
-
-  return null; 
 }
 
 export default ReadData;

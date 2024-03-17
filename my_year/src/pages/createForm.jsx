@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import create from "./create"
+import "./homepage.scss"
 
 const CreateForm = () => {
   const [formData, setFormData] = useState('');
@@ -16,7 +17,8 @@ const CreateForm = () => {
   return (
     <div>
       <textarea value={formData} onChange={handleChange} />
-      <button onClick={handleSave}>Save</button>
+      <button className="button-save" onClick={handleSave}>Save</button>
+      <button className="button-back" onClick={handleSave}>Back</button>
     </div>
   );
 };
