@@ -17,28 +17,28 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
-        gap: 3px;
+        align-items: center;        
         background: transparent;
         border: 2px solid rgba(0,0,0, .1);                     
         border-radius: 20px;
         width: 350px;
-        height: 350px;
+        height: 400px;
         backdrop-filter: blur(2.5px);
         
-        .dontHaveAcc {
+        .haveAcc {
             display: flex;
             flex-direction: column;
             justify-content: center;
             text-align: center;
             margin-bottom: 20px;
+            margin-top: 5px;
 
 
             .info {
             font-size: .8em;
             }
 
-            .signUpLink:hover {
+            .loginLink:hover {
                 color: $secondary-color;
                 cursor: pointer;
 
@@ -64,7 +64,7 @@
                 width: 80%;
                 height: 50px;
                 border-radius: 10px;
-                margin: 20px 0;
+                margin: 10px 0;
                 border-bottom: 2px solid #898989;
                 padding: 10px
                 
@@ -100,12 +100,4 @@
     
     
 }  
-
-.h2-signUp {
-    font-size: .8em;
-    color: $primary-color;
-    text-align: center;
-    margin-top: .2em;
-    
-}
 

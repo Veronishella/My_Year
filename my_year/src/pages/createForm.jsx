@@ -19,10 +19,13 @@ const CreateForm = ( { onClose }) => {
   }
 
   return (
-    <div>
-      <textarea value={formData} onChange={handleChange} />
-      <button className="button-save" onClick={handleSave}>Save</button>
-      <button className="button-back" onClick={handleBack}>Back</button>
+    <div className="section-New-Task">
+      <textarea className="text-area" value={formData} onChange={handleChange} />
+
+      <div className="buttonSaveBack">
+        <button className="button-save" onClick={handleSave}>Save</button>
+        <button className="button-back" onClick={handleBack}>Back</button>
+      </div>
     </div>
   );
 };

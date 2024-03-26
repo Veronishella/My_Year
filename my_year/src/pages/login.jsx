@@ -53,10 +53,10 @@ const Login = ({setToken}) => {
     return (
         <div className='section login-box'>
            
-            <form onSubmit={handleSubmit}>
+            <form className="form" onSubmit={handleSubmit}>
 
-                <h1>Happy Days</h1> 
-                <hr />
+                <h1 className="h1-name">Happy Days</h1>
+                
                 <input className='input-box'
                     placeholder="Email"
                     name="email"
@@ -72,7 +72,14 @@ const Login = ({setToken}) => {
 
                 <button type="submit">Submit
                 </button>
-                Don´t have an account? <Link to="/signup">Sign Up</Link>
+                <div className="dontHaveAcc">
+                    <span className="info">Don´t have an account? 
+                    </span> 
+                    <span className="signUpLink">
+                    <Link to="/signup">Sign Up</Link>
+                    </span>
+                    
+                </div>
             </form>
 
           

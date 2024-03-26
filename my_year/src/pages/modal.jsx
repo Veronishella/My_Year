@@ -17,7 +17,7 @@ const Modal = ({ children, onClose }) => {
 
 
         
-        <button className="close" onClick={handleClose}><span>x</span></button> {/* Tlačidlo zatvorenia modálneho okna */}
+        <button className="close" onClick={handleClose}><span>Close</span></button> {/* Tlačidlo zatvorenia modálneho okna */}
 
         {children} {/* Obsah modálneho okna */}
       </div>

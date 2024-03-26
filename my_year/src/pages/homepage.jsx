@@ -14,13 +14,13 @@ import Modal from "./modal"
 
 
 const Homepages = ({ token }) => {
-  //const [isModalOpen, setIsModalOpen] = useState(false); // NOVE: Stav pre sledovanie otvorenia/zatvorenia modálneho okna
+ 
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [isDataVisible, setDataVisible] = useState(false);
   const [tasks, setTasks] = useState([]);
   const [currentTaskIndex, setCurrentTaskIndex] = useState(0)
   let navigate = useNavigate();
-  const [isTaskDisplayOpen, setIsTaskDisplayOpen] = useState(false); // NOVE: Stav pre sledovanie otvorenia/zatvorenia modálneho okna
+  const [isTaskDisplayOpen, setIsTaskDisplayOpen] = useState(false); // Stav pre sledovanie otvorenia/zatvorenia modálneho okna
   
 
 

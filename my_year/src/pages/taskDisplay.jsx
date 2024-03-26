@@ -15,9 +15,6 @@ const TaskDisplay = ({ tasks }) => {
     setCurrentItem((prevItem) => Math.max(prevItem - 1, 0)); // Prejde na predchádzajúcu položku
   };
 
-
-  //<button className="close" onClick={onClose}>X</button> {/* Tlačidlo zatvorenia modálneho okna */} 
-
   return (
 
     <div className="modal-background section-hs-body">
@@ -29,10 +26,15 @@ const TaskDisplay = ({ tasks }) => {
             <p className="p-date">{format(new Date(tasks[currentItem].created_at), 'dd/MM/yyyy')}</p>
           </li>
         </ul>
-        <div>
-          <button onClick={handlePrev} disabled={currentItem === 0}>Prev</button>
-          <span>{currentItem + 1}/{tasks.length}</span> {/* Zobrazenie aktuálnej položky a celkového počtu */}
-          <button onClick={handleNext} disabled={currentItem === tasks.length - 1}>Next</button>
+        <div className="btn-prev-next">
+          <button onClick={handlePrev} disabled={currentItem === 0}>Prev
+          </button>
+
+          <span>{currentItem + 1}/{tasks.length}
+          </span> {/* Zobrazenie aktuálnej položky a celkového počtu */}
+
+          <button onClick={handleNext} disabled={currentItem === tasks.length - 1}>Next
+          </button>
         </div>
       </div>
     </div>
