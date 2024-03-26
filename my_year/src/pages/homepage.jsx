@@ -7,14 +7,21 @@ import TaskDisplay from "./taskDisplay.jsx"
 import ReadData from "./read"
 import "./homepage.scss"
 
+import Modal from "./modal"
+
+
+
 
 
 const Homepages = ({ token }) => {
+  //const [isModalOpen, setIsModalOpen] = useState(false); // NOVE: Stav pre sledovanie otvorenia/zatvorenia modálneho okna
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [isDataVisible, setDataVisible] = useState(false);
   const [tasks, setTasks] = useState([]);
   const [currentTaskIndex, setCurrentTaskIndex] = useState(0)
   let navigate = useNavigate();
+  const [isTaskDisplayOpen, setIsTaskDisplayOpen] = useState(false); // NOVE: Stav pre sledovanie otvorenia/zatvorenia modálneho okna
+  
 
 
  
@@ -22,6 +29,7 @@ const Homepages = ({ token }) => {
     sessionStorage.removeItem('token');
     navigate("/")
   }
+
 
 //TODO: nastavit stav "OK" pre User - informacia o uložení poznámky
   const handleSave = async (data) => {
@@ -42,44 +50,56 @@ const Homepages = ({ token }) => {
   const handleFetchData = async () => {
     try {
       //získanie údajov z databázy
+      const { user} = token;
+      const userID = user.id
       const { data, error } = await supabase
         .from('task')
-        .select('*'); //volím všetky stlpce
+        .select('*')//volím všetky stlpce
+        .eq('user_id', userID); 
+
+
       if (error) throw error;
       console.log('Úlohy získané z databázy:', data);
-      setDataVisible(true); // Nastavíme  stav pre zobrazenie údajov
       setTasks(data); // Uložíme úlohy do stavu
+      setIsTaskDisplayOpen(true);
+      setDataVisible(true); // Nastavíme  stav pre zobrazenie údajov
     } catch (error) {
       console.error('Chyba pri načívaní z databázy:', error.message);
     }
   };
 
-    //const handleNextTask = () => {
-    //  setCurrentTaskIndex((prevIndex) => (prevIndex === tasks.length - 1 ? 0 : prevIndex + 1));
-    //};
+  const handleModalClose = () => {
+    setIsTaskDisplayOpen(false);
+  };
+
+  const handleBack = () => {
+    setIsFormVisible(false);
+  }
+  
 
 
-      
+ return (
+  <div className="section-hs-body">
+    <h1>Welcome back, {token.user.user_metadata.full_Name}</h1>
+    <button onClick={() => setIsFormVisible(true)}>New</button>
+    {isFormVisible && 
+    <CreateForm onClose={handleBack} onSave={handleSave} />}
+  
+    <ReadData tasks={tasks} />
+
+    <button onClick={handleFetchData}>Read</button>    
 
 
-  return (
-    <div className="section-hs-body">
-      <h1>Welcome back, {token.user.user_metadata.full_Name}</h1>
-      
+    {isTaskDisplayOpen && ( // Zobraziť modálne okno len ak je otvorené
+        <Modal onClose={handleModalClose}> {/* Komponent Modal s funkciou na zatvorenie */}
+          <TaskDisplay tasks={tasks} /> {/* Komponent TaskDisplay s načítanými údajmi */}
+        </Modal>
+      )}
 
-      <button onClick={() => setIsFormVisible(true)}>New</button>
-      {isFormVisible && <CreateForm onSave={handleSave} />}
-      
-      <ReadData tasks={tasks} />
 
-      <button onClick={handleFetchData}>Read my task</button>
-      {tasks.length > 0 && <TaskDisplay tasks={tasks}/>}
-
-      <button>♥</button>
-
-      <button onClick={handleLogout}>Logout</button>
-
-    </div>
+    <button>♥</button>  
+    <button onClick={handleLogout}>Logout</button>
+  </div> 
   )
 }
 

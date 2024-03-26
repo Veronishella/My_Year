@@ -1,4 +1,4 @@
-// Importujte vášho klienta Supabase
+
 import supabase from "../client";
 import React, { useEffect } from 'react';
 
@@ -12,3 +12,4 @@ const ReadData = ({ tasks }) => {
 }
 
 export default ReadData;
+

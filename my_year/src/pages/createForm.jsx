@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import create from "./create"
 import "./homepage.scss"
 
-const CreateForm = () => {
+const CreateForm = ( { onClose }) => {
   const [formData, setFormData] = useState('');
 
   const handleChange = (event) => {
@@ -14,11 +14,15 @@ const CreateForm = () => {
     setFormData('');
   };
 
+  const handleBack = () => {
+    onClose();
+  }
+
   return (
     <div>
       <textarea value={formData} onChange={handleChange} />
       <button className="button-save" onClick={handleSave}>Save</button>
-      <button className="button-back" onClick={handleSave}>Back</button>
+      <button className="button-back" onClick={handleBack}>Back</button>
     </div>
   );
 };
