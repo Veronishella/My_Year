@@ -53,7 +53,7 @@ const Login = ({setToken}) => {
     return (
         <div className='section login-box'>
            
-            <form className="form" onSubmit={handleSubmit}>
+            <form className="form-logIn" onSubmit={handleSubmit}>
 
                 <h1 className="h1-name">Happy Days</h1>
                 

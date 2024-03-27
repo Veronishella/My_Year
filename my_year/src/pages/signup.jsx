@@ -59,17 +59,17 @@ const SignUp = () => {
 
   return (
     <div className="section login-box sign-box">
-      <form onSubmit={handleSubmit}>
+      <form className="form-signUp" onSubmit={handleSubmit}>
 
-     <h1 className="h1-name">Happy Days</h1> 
+        <h1 className="h1-name">Happy Days</h1> 
           
-        <input className="input-box signUp-box"
+        <input className="input-box"
           placeholder="Fullname"
           name="fullName"
           onChange={handleChange}
           />
 
-        <input className="input-box signUp-box"
+        <input className="inputSU-box"
           placeholder="Email"
           name="email"
           onChange={handleChange}

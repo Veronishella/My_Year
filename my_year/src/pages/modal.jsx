@@ -16,10 +16,15 @@ const Modal = ({ children, onClose }) => {
       <div className="modal-content" onClick={(e) => e.stopPropagation()}> {/* Zabránenie zatvorenia modálneho okna kliknutím na obsah */}
 
 
-        
-        <button className="close" onClick={handleClose}><span>Close</span></button> {/* Tlačidlo zatvorenia modálneho okna */}
+        <div className="testFlex">
+          
+            
+            <button className="close" onClick={handleClose}><span>x</span></button> {/* Tlačidlo zatvorenia modálneho okna */}
+            
+            {children} {/* Obsah modálneho okna */}
 
-        {children} {/* Obsah modálneho okna */}
+            
+        </div>
       </div>
     </div>
   )
