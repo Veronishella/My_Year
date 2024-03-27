@@ -30,17 +30,15 @@ const Homepages = ({ token }) => {
     navigate("/")
   }
 
-
-//TODO: nastavit stav "OK" pre User - informacia o uložení poznámky
   const handleSave = async (data) => {
     try {
-      // Ulož data do tabuľky v Supabase
+      // Save data to Supabase
       const { data: newTask, error } = await supabase
         .from('task') 
-        .insert([{ taskData: data }]); // Ulož dáta z formulára do tabuľky
+        .insert([{ taskData: data }]); 
       if (error) throw error;
       console.log('Nový úkol bol úspešne vytvorený:', newTask);
-      setIsFormVisible(false); // Skryť formulár po uložení úlohy
+      setIsFormVisible(false); // hide form after saving data
     } catch (error) {
       console.error('Chyba pri ukladaní úlohy:', error.message);
     }
@@ -54,7 +52,7 @@ const Homepages = ({ token }) => {
       const userID = user.id
       const { data, error } = await supabase
         .from('task')
-        .select('*')//volím všetky stlpce
+        .select('*')
         .eq('user_id', userID); 
 
 

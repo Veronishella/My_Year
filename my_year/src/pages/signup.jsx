@@ -1,9 +1,7 @@
-
 import React, { useState } from 'react'
 import  supabase  from '../client'
 import { AuthApiError } from '@supabase/supabase-js'
 import { Link } from 'react-router-dom'
-
 import "./signup.scss"
 
 
@@ -32,7 +30,6 @@ const SignUp = () => {
   async function handleSubmit(event){
     event.preventDefault();
     try {
-      //console.log("kod v bloku try je spusten")
       const { data, error } = await supabase.auth.signUp({
           email: formData.email,
           password: formData.password,
@@ -51,10 +48,8 @@ const SignUp = () => {
       } //catch (error) {
        //alert(error)
        catch (error) {
-        alert("Chyba chytena", error)
-
+        alert("Error:", error)
         }
-     
     }
 
   return (
