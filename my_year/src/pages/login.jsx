@@ -14,7 +14,6 @@ const Login = ({setToken}) => {
         password: "",
     })
 
-    console.log(formData)
     //fn for getting some changes from input fields
     function handleChange(event) {
         setFormData((prevFormData) => {
@@ -30,14 +29,14 @@ const Login = ({setToken}) => {
     async function handleSubmit(event) {
         event.preventDefault();
         try {
-            //console.log("kod v bloku try je spusten")
+            
             const { data, error } = await supabase.auth.signInWithPassword({
                 email: formData.email,
                 password: formData.password,
             })
 
             if (error) throw error
-            console.log(data)
+            
             setToken(data)
             navigate('/homepage')
 

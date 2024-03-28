@@ -5,6 +5,8 @@ import "./homepage.scss"
 const CreateForm = ( { onClose }) => {
   const [formData, setFormData] = useState('');
 
+  const[savedMessage, setSavedMessage] = useState(''); 
+
   const handleChange = (event) => {
     setFormData(event.target.value);
   };
@@ -12,6 +14,11 @@ const CreateForm = ( { onClose }) => {
   const handleSave = () => {
     create(formData);
     setFormData('');
+
+    setSavedMessage("Successfully saved");
+    setTimeout(()=>{
+      setSavedMessage("");
+    }, 2000);
   };
 
   const handleBack = () => {
@@ -24,8 +31,10 @@ const CreateForm = ( { onClose }) => {
 
       <div className="buttonSaveBack">
         <button className="button-save" onClick={handleSave}>Save</button>
-        <button className="button-back" onClick={handleBack}>Back</button>
+        <button className="button-back" onClick={handleBack}>Close</button>
       </div>
+
+      {savedMessage && <div className="saved-message">{savedMessage}</div>}
     </div>
   );
 };

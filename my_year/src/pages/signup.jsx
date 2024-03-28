@@ -14,7 +14,6 @@ const SignUp = () => {
     password:"",
   })
 
-  console.log(formData)
   //fn for getting some changes from input fields
   function handleChange(event){
     setFormData((prevFormData)=>{
@@ -41,7 +40,6 @@ const SignUp = () => {
         });
 
         if (error) {      
-          console.log('Signup error', error)
           alert(error) }
 
       alert("Check your email for verification link")

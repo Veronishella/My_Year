@@ -86,4 +86,12 @@
                 align-items: center;
             }
         }
+
+
+        .saved-message {
+            font-size: 2em;
+            font-family: $font-family;
+            font-weight: 700;
+            color: black
+        }
 }

@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
-//import create from "./create"
 import CreateForm from "./createForm"
 import supabase from '../client.js'
 import TaskDisplay from "./taskDisplay.jsx"
@@ -37,10 +36,8 @@ const Homepages = ({ token }) => {
         .from('task') 
         .insert([{ taskData: data }]); 
       if (error) throw error;
-      console.log('Nový úkol bol úspešne vytvorený:', newTask);
       setIsFormVisible(false); // hide form after saving data
-    } catch (error) {
-      console.error('Chyba pri ukladaní úlohy:', error.message);
+    } catch (error) {      
     }
   };
 
@@ -57,12 +54,10 @@ const Homepages = ({ token }) => {
 
 
       if (error) throw error;
-      console.log('Úlohy získané z databázy:', data);
       setTasks(data); // Uložíme úlohy do stavu
       setIsTaskDisplayOpen(true);
       setDataVisible(true); // Nastavíme  stav pre zobrazenie údajov
     } catch (error) {
-      console.error('Chyba pri načívaní z databázy:', error.message);
     }
   };
 
